@@ -4,14 +4,16 @@ import Login from './src/screens/Login';
 import Home from './src/screens/Home';
 import Screen from './src/screens/Screen';
 import MyScreen from './src/MyScreen';
-import Carousel from './src/screens/Carousel';
+import Carousel from './src/components/Carousel';
 import BookByDate from './src/screens/BookByDate';
-import Display from './src/screens/Display';
+
 import Successful from './src/screens/Successful';
 import BookByFeature from './src/screens/BookByFeature';
 import Available from './src/screens/Available';
 import BestMatches from './src/screens/BestMatches';
 import BookingCancel from './src/screens/BookingCancel';
+import Tests from './src/screens/Tests';
+
 
 
 //import { AppRegistry } from 'react-native';
@@ -29,7 +31,7 @@ import BookingCancel from './src/screens/BookingCancel';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Login/>
+      <BestMatches/>
     </View>
   );
 }

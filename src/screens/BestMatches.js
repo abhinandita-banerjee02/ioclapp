@@ -1,86 +1,62 @@
-import { View, Text ,StyleSheet,ScrollView,Image,TouchableOpacity,onPress} from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, onPress } from 'react-native'
 import React from 'react'
 
-const BestMatches = () => {
+const BMatches2 = () => {
     return (
-        <View>
-            <View style={styles.container_heading}>
-                <Text style={styles.text}>Best Matches</Text>
-            </View>
+        <View style={styles.container}>
 
-            <Text style={styles.heading}> Best Matches </Text>
+            <View style={styles.container_heading}>
+                <Text style={styles.text}>Book by date</Text>
+            </View>
 
 
             <ScrollView style={styles.container_scroll}>
-            <View style={styles.container_card}>
-                <Image source={require("../../assets/card1.png")} style={styles.image_card} />
-                <Text style={styles.title_card}>DY Hall</Text>
-                <TouchableOpacity style={styles.button_card} onPress={onPress}>
-                    <Text style={styles.buttonText_card}>Det</Text>
-                </TouchableOpacity>
-            </View>
 
-            <View style={styles.container_card}>
-                <Image source={require("../../assets/card1.png")} style={styles.image_card} />
-                <Text style={styles.title_card}>DY Hall</Text>
-                <TouchableOpacity style={styles.button_card} onPress={onPress}>
-                    <Text style={styles.buttonText_card}>Det</Text>
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.container_card}>
-                <Image source={require("../../assets/card1.png")} style={styles.image_card} />
-                <Text style={styles.title_card}>DY Hall</Text>
-                <TouchableOpacity style={styles.button_card} onPress={onPress}>
-                    <Text style={styles.buttonText_card}>Det</Text>
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.container_card}>
-                <Image source={require("../../assets/card1.png")} style={styles.image_card} />
-                <Text style={styles.title_card}>DY Hall</Text>
-                <TouchableOpacity style={styles.button_card} onPress={onPress}>
-                    <Text style={styles.buttonText_card}>Det</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.container_card}>
-                <Image source={require("../../assets/card1.png")} style={styles.image_card} />
-                <Text style={styles.title_card}>DY Hall</Text>
-                <TouchableOpacity style={styles.button_card} onPress={onPress}>
-                    <Text style={styles.buttonText_card}>Det</Text>
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.container_card}>
-                <Image source={require("../../assets/card1.png")} style={styles.image_card} />
-                <Text style={styles.title_card}>DY Hall</Text>
-                <TouchableOpacity style={styles.button_card} onPress={onPress}>
-                    <Text style={styles.buttonText_card}>Det</Text>
-                </TouchableOpacity>
-            </View>
-</ScrollView>
-
-
+                <View style={styles.container_card}>
+                    <Image source={require("../../assets/card1.png")} style={styles.image_card} />
+                    <Text style={styles.title_card}>DY Hall</Text>
+                    <TouchableOpacity style={styles.button_card} onPress={onPress}>
+                        <Text style={styles.buttonText_card}>Det</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.container_card}>
+                    <Image source={require("../../assets/card1.png")} style={styles.image_card} />
+                    <Text style={styles.title_card}>DY Hall</Text>
+                    <TouchableOpacity style={styles.button_card} onPress={onPress}>
+                        <Text style={styles.buttonText_card}>Det</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.container_card}>
+                    <Image source={require("../../assets/card1.png")} style={styles.image_card} />
+                    <Text style={styles.title_card}>DY Hall</Text>
+                    <TouchableOpacity style={styles.button_card} onPress={onPress}>
+                        <Text style={styles.buttonText_card}>Det</Text>
+                    </TouchableOpacity>
+                </View>
+                
+                </ScrollView>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         //right:0,
 
-        width: '80%',
+        width: '100%',
         // backgroundColor: "#FCE1CE"
 
     },
-    heading:{
-        fontSize:19,
-        fontWeight:'bold',
-        paddingBottom:5,
-        paddingTop:140,
-        flex:1,
-        justifyContent:'flex-start'
+    container_heading: {
+
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        paddingTop: 50,
+        width: '80%',
+        backgroundColor: "#FCE1CE"
+
     },
     text: {
         backgroundColor: '#1B2F4D',
@@ -93,17 +69,9 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         fontFamily: 'KaushanScript',
-        marginLeft:60
 
-    },
-    container_heading: {
-        
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        paddingTop: 50,
-        width: '80%',
-        backgroundColor: "#FCE1CE"
+
+
 
     },
     container_card: {
@@ -117,9 +85,9 @@ const styles = StyleSheet.create({
         paddingRight: 5,
         paddingLeft: 0,
         with: '100%',
-        marginTop:13,
-        marginBottom:13
-        
+        marginTop: 13,
+        marginBottom: 13
+
 
     },
     image_card: {
@@ -154,10 +122,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center'
     },
-    container_scroll:{
+    container_scroll: {
         //flex: 1,
-        marginTop:20
+        marginTop: 130
     }
-}
-)
-export default BestMatches
+})
+export default BMatches2

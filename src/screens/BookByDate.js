@@ -1,8 +1,40 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import React from 'react'
-import KaushanScript from '../../assets/font/KaushanScript-Regular.ttf';
-
+import React, { useState } from 'react'
+//import KaushanScript from '../../assets/font/KaushanScript-Regular.ttf';
+import DatePicker from 'react-native-datepicker';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 const BookByDate = () => {
+
+    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+    const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
+
+    const showDatePicker = () => {
+        setDatePickerVisibility(true);
+    };
+
+    const hideDatePicker = () => {
+        setDatePickerVisibility(false);
+    };
+
+    const handleDateConfirm = (date) => {
+        console.warn("A date has been picked: ", date);
+        hideDatePicker();
+    };
+
+
+    const showTimePicker = () => {
+        setTimePickerVisibility(true);
+    };
+
+    const hideTimePicker = () => {
+        setTimePickerVisibility(false);
+    };
+
+    const handleTimeConfirm = (date) => {
+        console.warn("A date has been picked: ", date);
+        hideTimePicker();
+    };
+
     return (
 
         <View style={styles.container}>
@@ -13,18 +45,38 @@ const BookByDate = () => {
 
 
             <View style={styles.container_btn1}>
-                <TouchableOpacity style={styles.button1}>
+                <TouchableOpacity style={styles.button1}
+                    onPress={() => {
+                        showDatePicker();
+                    }}>
                     <Text style={styles.buttonText}>Select Date</Text>
                 </TouchableOpacity>
 
 
 
-                <TouchableOpacity style={styles.button2}>
+                <TouchableOpacity style={styles.button2}
+                onPress={() => {
+                        showTimePicker();
+                    }}>
                     <Text style={styles.buttonText}>Select Time</Text>
                 </TouchableOpacity>
             </View>
             <Image style={styles.image}
                 source={require("../../assets/bookdateMascot.png")}
+            />
+
+            <DateTimePickerModal
+                isVisible={isDatePickerVisible}
+                mode="date"
+                onConfirm={handleDateConfirm}
+                onCancel={hideDatePicker}
+            />
+
+            <DateTimePickerModal
+                isVisible={isTimePickerVisible}
+                mode="time"
+                onConfirm={handleTimeConfirm}
+                onCancel={hideTimePicker}
             />
         </View>
 

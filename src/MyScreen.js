@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Carousel from './screens/Carousel';
+import Carousel from './components/Carousel';
 
 const MyScreen = () => {
   return (
@@ -12,7 +12,7 @@ const MyScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    //flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,
