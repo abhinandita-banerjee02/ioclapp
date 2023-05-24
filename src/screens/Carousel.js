@@ -1,41 +1,32 @@
-import React from 'react';
-import { View, Image, StyleSheet, FlatList } from 'react-native';
+import React from "react";
+import { View, Image, StyleSheet, ScrollView } from "react-native";
 
 const Carousel = () => {
   const data = [
-    { id: '1', imageSource: require('../../assets/hall.png') },
-    { id: '2', imageSource: require('../../assets/hall.png') },
-    { id: '3', imageSource: require('../../assets/hall.png') },
-    // Add more images here
+    { id: "1", imageSource: require("../../assets/hall.png") },
+    { id: "2", imageSource: require("../../assets/hall.png") },
+    { id: "3", imageSource: require("../../assets/hall.png") },
   ];
-
-  const renderItem = ({ item }) => (
-    <Image source={item.imageSource} style={styles.image} />
-  );
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-      />
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+        {data.map((element) => (
+          <Image
+            source={element.imageSource}
+            style={styles.image}
+            key={element.id}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  containercarousel1: {
-    height: 200,
-  },
-  image: {
-    width: 300,
-    height: 200,
-    resizeMode: 'cover',
-    marginRight: 10,
-  },
+  image:{
+    marginRight: 8
+  }
 });
 
 export default Carousel;
