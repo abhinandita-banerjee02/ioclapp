@@ -42,20 +42,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "#FCE1CE"
   },
   container_heading: {
-    /*flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection:'row',
-        width:'100%',*/
-    /*position: 'absolute',
-        top: 0,
-        left: 0,
-        paddingTop: 50,
-        paddingLeft: 20,*/
-
-    //flex: 1,
-    //justifyContent:'left',
-    //alignItems:'left',
+   
     position: "absolute",
     top: 0,
     left: 0,
