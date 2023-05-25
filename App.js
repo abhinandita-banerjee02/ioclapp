@@ -7,6 +7,7 @@ import BestMatches from './src/screens/BestMatches';
 import Available from './src/screens/Available';
 import BookByFeature from './src/screens/BookByFeature';
 import BookingCancel from './src/screens/BookingCancel';
+import BookingConfirmation from './src/screens/BookingConfirmation';
 
 
 //import { AppRegistry } from 'react-native';
@@ -24,7 +25,7 @@ import BookingCancel from './src/screens/BookingCancel';
 export default function App() {
   return (
     <View style={styles.container}>
-      <BookingCancel />
+      <BookingConfirmation />
     </View>
   );
 }
