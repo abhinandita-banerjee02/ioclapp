@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet ,Image} from "react-native";
 import CheckBox from "react-native-checkbox";
 const BookByFeature = () => {
   const [isChecked1, setIsChecked1] = useState(false);
@@ -28,11 +28,11 @@ const BookByFeature = () => {
         <CheckBox
           style={styles.c1}
           label="Capacity<50"
-          /*checked={isChecked1}
-          onChange={handleToggleCheckBox1}
-          checkboxStyle={styles.checkbox}
-          tintColors={{ true: 'blue', false: 'gray' }}
-          onFillColor="blue"*/
+        /*checked={isChecked1}
+        onChange={handleToggleCheckBox1}
+        checkboxStyle={styles.checkbox}
+        tintColors={{ true: 'blue', false: 'gray' }}
+        onFillColor="blue"*/
         />
         <CheckBox
           label="Capacity >50"
@@ -45,14 +45,19 @@ const BookByFeature = () => {
           style={styles.c2}
         />
       </View>
+
+      <Image
+        style={styles.image}
+        source={require("../../assets/bookdateMascot.png")}
+      />
     </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    //justifyContent: "center",
+    //alignItems: "center",
     width: "100%",
     backgroundColor: "#FCE1CE",
   },
@@ -77,9 +82,10 @@ const styles = StyleSheet.create({
   },
   checkboxContainer: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: "column",
     paddingTop: 200,
     alignItems: "flex-start",
+    paddingLeft: 30
     //marginBottom: 16,
   },
   checkbox: {
@@ -87,6 +93,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
     //backgroundColor:'blue',
     borderColor: "blue",
+
   },
   c1: {
     marginRight: 5,
@@ -94,6 +101,18 @@ const styles = StyleSheet.create({
   },
   c2: {
     paddingLeft: 10,
+  },
+  image: {
+    width: 300,
+    height: 380,
+    justifyContent: "center",
+    alignItems: "center",
+    resizeMode: "contain",
+    alignContent: "center",
+    paddingLeft: 100,
+    position: "absolute",
+    bottom: 0,
+    alignSelf: "center",
   },
 });
 

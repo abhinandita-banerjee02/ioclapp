@@ -4,7 +4,9 @@ import Login from './src/screens/Login';
 import Home from './src/screens/Home';
 import BookByDate from './src/screens/BookByDate';
 import BestMatches from './src/screens/BestMatches';
-
+import Available from './src/screens/Available';
+import BookByFeature from './src/screens/BookByFeature';
+import BookingCancel from './src/screens/BookingCancel';
 
 
 //import { AppRegistry } from 'react-native';
@@ -22,7 +24,7 @@ import BestMatches from './src/screens/BestMatches';
 export default function App() {
   return (
     <View style={styles.container}>
-      <BookByDate/>
+      <BookingCancel />
     </View>
   );
 }
@@ -32,7 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FCE1CE',
     alignItems: 'center',
-   
+
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingTop: 50,
