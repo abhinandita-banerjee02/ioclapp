@@ -4,8 +4,7 @@ import Login from './src/screens/Login';
 import Home from './src/screens/Home';
 import BookByDate from './src/screens/BookByDate';
 import BestMatches from './src/screens/BestMatches';
-import BestMatches2 from './src/screens/BestMatches';
-import Carousel2 from './src/components/HomeComponents/Carousel2';
+
 
 
 //import { AppRegistry } from 'react-native';
@@ -23,7 +22,7 @@ import Carousel2 from './src/components/HomeComponents/Carousel2';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Carousel2/>
+      <BookByDate/>
     </View>
   );
 }

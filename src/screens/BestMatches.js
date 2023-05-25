@@ -124,4 +124,4 @@ const styles = StyleSheet.create({
     paddingTop: 130
   },
 })
-export default BestMatches2
+export default BestMatches

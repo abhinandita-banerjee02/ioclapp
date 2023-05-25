@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { View, TextInput, Text, StyleSheet, Button } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-
+import Carousel from "./Carousel";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import VenueCard from "../components/HomeComponents/VenueCard";
-import Carousel from "../components/Carousel2";
-import Carousel2 from "../components/HomeComponents/Carousel2";
 
 const Home = () => {
   const [searchText, setSearchText] = useState("");
@@ -27,7 +25,6 @@ const Home = () => {
             value={searchText}
           />
         </View>
-        
 
         <TouchableOpacity onPress={handleSearch} style={styles.searchBtn}>
           <Text style={styles.btnText}>Search</Text>
@@ -42,7 +39,7 @@ const Home = () => {
             <Text style={styles.heading}>Best Venues</Text>
           </View>
           <View>
-            <Carousel2 />
+            <Carousel />
           </View>
         </View>
         {/* Carousel */}
