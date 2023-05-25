@@ -2,21 +2,19 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
   Image,
   TouchableOpacity,
   onPress,
-} from "react-native";
-import React from "react";
+  ScrollView,
+} from 'react-native'
+import React from 'react'
 
 const BestMatches = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.container_heading}>
-        <Text style={styles.text}>Best Matches</Text>
+        <Text style={styles.text}>Book by date</Text>
       </View>
-
-      <Text style={styles.heading}> Best Matches </Text>
 
       <ScrollView style={styles.container_scroll}>
         <View style={styles.container_card}>
@@ -29,61 +27,8 @@ const BestMatches = () => {
             <Text style={styles.buttonText_card}>Det</Text>
           </TouchableOpacity>
         </View>
-
-        <View style={styles.container_card}>
-          <Image
-            source={require("../../assets/card1.png")}
-            style={styles.image_card}
-          />
-          <Text style={styles.title_card}>DY Hall</Text>
-          <TouchableOpacity style={styles.button_card} onPress={onPress}>
-            <Text style={styles.buttonText_card}>Det</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.container_card}>
-          <Image
-            source={require("../../assets/card1.png")}
-            style={styles.image_card}
-          />
-          <Text style={styles.title_card}>DY Hall</Text>
-          <TouchableOpacity style={styles.button_card} onPress={onPress}>
-            <Text style={styles.buttonText_card}>Det</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.container_card}>
-          <Image
-            source={require("../../assets/card1.png")}
-            style={styles.image_card}
-          />
-          <Text style={styles.title_card}>DY Hall</Text>
-          <TouchableOpacity style={styles.button_card} onPress={onPress}>
-            <Text style={styles.buttonText_card}>Det</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.container_card}>
-          <Image
-            source={require("../../assets/card1.png")}
-            style={styles.image_card}
-          />
-          <Text style={styles.title_card}>DY Hall</Text>
-          <TouchableOpacity style={styles.button_card} onPress={onPress}>
-            <Text style={styles.buttonText_card}>Det</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.container_card}>
-          <Image
-            source={require("../../assets/card1.png")}
-            style={styles.image_card}
-          />
-          <Text style={styles.title_card}>DY Hall</Text>
-          <TouchableOpacity style={styles.button_card} onPress={onPress}>
-            <Text style={styles.buttonText_card}>Det</Text>
-          </TouchableOpacity>
-        </View>
       </ScrollView>
+
     </View>
   );
 };
@@ -93,16 +38,30 @@ const styles = StyleSheet.create({
     flex: 1,
     //right:0,
 
-    width: "80%",
+    width: "100%",
     // backgroundColor: "#FCE1CE"
   },
-  heading: {
-    fontSize: 19,
-    fontWeight: "bold",
-    paddingBottom: 5,
-    paddingTop: 140,
-    flex: 1,
-    justifyContent: "flex-start",
+  container_heading: {
+    /*flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection:'row',
+        width:'100%',*/
+    /*position: 'absolute',
+        top: 0,
+        left: 0,
+        paddingTop: 50,
+        paddingLeft: 20,*/
+
+    //flex: 1,
+    //justifyContent:'left',
+    //alignItems:'left',
+    position: "absolute",
+    top: 0,
+    left: 0,
+    paddingTop: 50,
+    width: "80%",
+    backgroundColor: "#FCE1CE",
   },
   text: {
     backgroundColor: "#1B2F4D",
@@ -115,15 +74,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     fontFamily: "KaushanScript",
-    marginLeft: 60,
-  },
-  container_heading: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    paddingTop: 50,
-    width: "80%",
-    backgroundColor: "#FCE1CE",
   },
   container_card: {
     flexDirection: "row",
@@ -170,8 +120,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   container_scroll: {
-    //flex: 1,
-    marginTop: 20,
+    flex: 1,
+    paddingTop: 130
   },
-});
-export default BestMatches;
+})
+export default BestMatches2

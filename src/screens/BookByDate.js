@@ -1,26 +1,82 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import React from "react";
-import KaushanScript from "../../assets/font/KaushanScript-Regular.ttf";
+import React, { useState } from "react";
+
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 const BookByDate = () => {
+  /*Date and Time Picker*/
+
+
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
+
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleDateConfirm = (date) => {
+    console.warn("A date has been picked: ", date);
+    hideDatePicker();
+  };
+
+
+  const showTimePicker = () => {
+    setTimePickerVisibility(true);
+  };
+
+  const hideTimePicker = () => {
+    setTimePickerVisibility(false);
+  };
+
+  const handleTimeConfirm = (date) => {
+    console.warn("A date has been picked: ", date);
+    hideTimePicker();
+  };
   return (
     <View style={styles.container}>
       <View style={styles.container_heading}>
         <Text style={styles.text}>Book by date</Text>
       </View>
-
+      {/*DATE PICKER*/}
       <View style={styles.container_btn1}>
-        <TouchableOpacity style={styles.button1}>
+        <TouchableOpacity style={styles.button1}
+          onPress={() => {
+            showDatePicker();
+          }}>
           <Text style={styles.buttonText}>Select Date</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity style={styles.button2}>
+        {/*TIME PICKER*/}
+        <TouchableOpacity style={styles.button2}
+          onPress={() => {
+            showTimePicker();
+          }}>
           <Text style={styles.buttonText}>Select Time</Text>
         </TouchableOpacity>
       </View>
+
+      {/*MASCOT*/}
       <Image
         style={styles.image}
         source={require("../../assets/bookdateMascot.png")}
+      />
+
+      <DateTimePickerModal
+        isVisible={isDatePickerVisible}
+        mode="date"
+        onConfirm={handleDateConfirm}
+        onCancel={hideDatePicker}
+      />
+
+      <DateTimePickerModal
+        isVisible={isTimePickerVisible}
+        mode="date"
+        onConfirm={handleTimeConfirm}
+        onCancel={hideTimePicker}
       />
     </View>
   );
@@ -34,20 +90,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "#FCE1CE"
   },
   container_heading: {
-    /*flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection:'row',
-        width:'100%',*/
-    /*position: 'absolute',
-        top: 0,
-        left: 0,
-        paddingTop: 50,
-        paddingLeft: 20,*/
 
-    //flex: 1,
-    //justifyContent:'left',
-    //alignItems:'left',
     position: "absolute",
     top: 0,
     left: 0,
@@ -65,7 +108,7 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     fontSize: 18,
     fontWeight: "bold",
-    fontFamily: "KaushanScript",
+    
   },
   container_btn1: {
     flex: 1,
