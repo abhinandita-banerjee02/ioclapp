@@ -1,7 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Login from './src/screens/Login';
 import Home from './src/screens/Home';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
+
 
 
 //import { AppRegistry } from 'react-native';
@@ -14,24 +16,12 @@ import Home from './src/screens/Home';
 // Register the font
 //Font.register({ KaushanScript });
 
+const navigation = createStackNavigator({
+  Login: Login,
+  Home: Home,
+},
+{
+  initialRouteName: 'Login',
+})
 
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Home/>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FCE1CE',
-    alignItems: 'center',
-   
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop: 50,
-  },
-});
+export default createAppContainer(navigation);

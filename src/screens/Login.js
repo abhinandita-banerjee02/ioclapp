@@ -10,7 +10,7 @@ import {
 
 import React from "react";
 
-const Login = () => {
+const Login = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.headingtext}>Login</Text>
@@ -34,7 +34,7 @@ const Login = () => {
         // onChangeText={handleInputChange}
         // value={inputValue}
       />
-      <TouchableOpacity title="Submit" style={styles.button}>
+      <TouchableOpacity title="Submit" style={styles.button} onPress={() => navigation.navigate("Home")}>
         <Text
           style={styles.btnText}
           // onPress={handleButtonPress}
