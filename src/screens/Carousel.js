@@ -3,7 +3,7 @@ import { View, Image, StyleSheet, ScrollView } from "react-native";
 
 const Carousel = () => {
   const data = [
-    { id: "1", imageSource: require("../../assets/hall.png") },
+    { id: "1", imageSource: require('../../assets/hall.png') },
     { id: "2", imageSource: require("../../assets/hall.png") },
     { id: "3", imageSource: require("../../assets/hall.png") },
   ];
