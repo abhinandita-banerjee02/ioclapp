@@ -6,22 +6,19 @@ import { createAppContainer } from 'react-navigation';
 
 
 
-//import { AppRegistry } from 'react-native';
-//import { Font } from 'expo';
-
-// Import your custom font file
-//import KaushanScript from '../../assets/font/KaushanScript-Regular.ttf';
+import React, { useState } from "react";
+import Navigation from './src/components/Navigation';
+import { AuthProvider } from './src/context/AuthContext';
 
 
-// Register the font
-//Font.register({ KaushanScript });
 
-const navigation = createStackNavigator({
-  Login: Login,
-  Home: Home,
-},
-{
-  initialRouteName: 'Login',
-})
 
-export default createAppContainer(navigation);
+
+const App = () => {
+  return (
+    <AuthProvider>
+   <Navigation />
+   </AuthProvider>
+  )
+}
+export default App;

@@ -1,3 +1,4 @@
+
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
 import moment from 'moment';
@@ -48,37 +49,31 @@ const BookByDate = ({ navigation }) => {
       const bookingData = {
         bookingDate: formattedDate,
       };
-      navigation.navigate('Available', { date: moment(chosenDate).format('YYYY-MM-DD') });
-    }
-    else {
+  
+      // Convert bookingData to JSON and send it to the backend
+      const jsonData = JSON.stringify(bookingData);
+  
+      fetch('https://63a9-2405-201-8006-5009-955-5325-4924-1a7b.ngrok-free.app/reservation_date', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          navigation.navigate('Available1', { date: moment(chosenDate).format('YYYY-MM-DD') });
+          // Handle the response from the backend
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    } else {
       console.warn('Please select a date before proceeding.');
     }
-  }
-
-  // Convert bookingData to JSON and send it to the backend
-  //const jsonData = JSON.stringify(bookingData);
-
-  /* fetch('https://63a9-2405-201-8006-5009-955-5325-4924-1a7b.ngrok-free.app/reservation_date', {
-     method: 'POST',
-     headers: {
-       'Content-Type': 'application/json',
-     },
-     body: jsonData,
-   })
-     .then((response) => response.json())
-     .then((data) => {
-       console.log(data);
-       navigation.navigate('Available1', { date: moment(chosenDate).format('YYYY-MM-DD') });
-       // Handle the response from the backend
-     })
-     .catch((error) => {
-       console.error('Error:', error);
-     });
- } else {
-   console.warn('Please select a date before proceeding.');
- }
-};*/
-
+  };
+  
 
 
 

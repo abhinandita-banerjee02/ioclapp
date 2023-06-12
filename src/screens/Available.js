@@ -6,83 +6,75 @@ import {
   TouchableOpacity,
   onPress,
   ScrollView,
+  FlatList
 } from "react-native";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import axios from 'axios';
+const Available = ({route,navigation}) => {
 
-const Available = () => {
+
+
+
+  const [items, setItems] = useState([]);
+  const [bookings, setBookings] = useState([]);
+  const [availableTitles, setAvailableTitles] = useState([]);
+  const { date } = route.params;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const itemsResponse = await axios.get('https://63a9-2405-201-8006-5009-955-5325-4924-1a7b.ngrok-free.app/items');
+        setItems(itemsResponse.data);
+
+        const bookingsResponse = await axios.get('https://63a9-2405-201-8006-5009-955-5325-4924-1a7b.ngrok-free.app/booked');
+        setBookings(bookingsResponse.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const filterAvailableTitles = () => {
+      const filteredItems = items.filter((item) => {
+        const booking = bookings.find(
+          (booking) => booking.title === item.title && booking.bookingDate === date
+        );
+        return !booking;
+      });
+
+      const availableTitles = filteredItems.map((item) => item.title);
+      setAvailableTitles(availableTitles);
+    };
+
+    filterAvailableTitles();
+  }, [items, bookings, date]);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>20th May</Text>
+    <Text style={styles.heading}>20th May</Text>
+    <Text style={styles.subheading}>Venues Available</Text>
 
-      <Text style={styles.subheading}>Venues Available</Text>
-
-      <ScrollView style={styles.container_scroll}>
-        <View style={styles.container_card}>
+    <ScrollView style={styles.container_scroll}>
+      {availableTitles.map((title, index) => (
+        <View style={styles.container_card} key={index}>
           <Image
             source={require("../../assets/card1.png")}
             style={styles.image_card}
           />
-          <Text style={styles.title_card}>DY Hall</Text>
-          <TouchableOpacity style={styles.button_card} onPress={onPress}>
+          <Text style={styles.title_card}>{title}</Text>
+          <TouchableOpacity
+            style={styles.button_card}
+            onPress={() => navigation.navigate("BookingConfirmation",{title1:title})}
+          >
             <Text style={styles.buttonText_card}>Det</Text>
           </TouchableOpacity>
         </View>
-
-        <View style={styles.container_card}>
-          <Image
-            source={require("../../assets/card1.png")}
-            style={styles.image_card}
-          />
-          <Text style={styles.title_card}>DY Hall</Text>
-          <TouchableOpacity style={styles.button_card} onPress={onPress}>
-            <Text style={styles.buttonText_card}>Det</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.container_card}>
-          <Image
-            source={require("../../assets/card1.png")}
-            style={styles.image_card}
-          />
-          <Text style={styles.title_card}>DY Hall</Text>
-          <TouchableOpacity style={styles.button_card} onPress={onPress}>
-            <Text style={styles.buttonText_card}>Det</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.container_card}>
-          <Image
-            source={require("../../assets/card1.png")}
-            style={styles.image_card}
-          />
-          <Text style={styles.title_card}>DY Hall</Text>
-          <TouchableOpacity style={styles.button_card} onPress={onPress}>
-            <Text style={styles.buttonText_card}>Det</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.container_card}>
-          <Image
-            source={require("../../assets/card1.png")}
-            style={styles.image_card}
-          />
-          <Text style={styles.title_card}>DY Hall</Text>
-          <TouchableOpacity style={styles.button_card} onPress={onPress}>
-            <Text style={styles.buttonText_card}>Det</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.container_card}>
-          <Image
-            source={require("../../assets/card1.png")}
-            style={styles.image_card}
-          />
-          <Text style={styles.title_card}>DY Hall</Text>
-          <TouchableOpacity style={styles.button_card} onPress={onPress}>
-            <Text style={styles.buttonText_card}>Det</Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
-    </View>
+      ))}
+    </ScrollView>
+  </View>
   );
 };
 const styles = StyleSheet.create({
@@ -149,7 +141,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   container_scroll: {
-    flex: 1,
+    //flex: 1,
   },
 });
 export default Available;

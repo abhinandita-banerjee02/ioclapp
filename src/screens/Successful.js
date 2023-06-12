@@ -1,8 +1,9 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-const Successful = () => {
+import moment from "moment";
+const Successful = ({route}) => {
+  const {date}=route.params
   return (
     <View style={styles.container}>
       <View style={styles.container_heading}>
@@ -18,7 +19,7 @@ const Successful = () => {
         <Text style={styles.text1}>Congratulations</Text>
         <View style={styles.subheading}>
           <Text style={styles.text2}>You’ve booked DY hall</Text>
-          <Text style={styles.text3}>for 23rd May</Text>
+          <Text style={styles.text3}>{moment(date).format('DD-MM-YYYY')}</Text>
         </View>
       </View>
     </View>

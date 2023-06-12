@@ -1,8 +1,10 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
+import { FlatList } from "react-native-gesture-handler";
 
 const VenueCard = () => {
   return (
+    
     <View style={styles.outterContainer}>
       <View style={styles.container}>
         <Image
@@ -13,7 +15,7 @@ const VenueCard = () => {
           <Text style={styles.title}>DY Hall</Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => console.log("venue card pressed")}
+            onPress={() => navigation.navigate("BookingConfirmation")}
           >
             <Text style={styles.btnText}>Details</Text>
           </TouchableOpacity>
