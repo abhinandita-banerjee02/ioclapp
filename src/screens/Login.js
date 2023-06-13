@@ -35,7 +35,8 @@ const Login = ({ navigation }) => {
         style={styles.input}
         value={email}
         placeholder="Enter text..."
-        onChangeText={text => setEmail(text)}
+        onChangeText={text => setEmail(text)
+        }
       />
       <Text style={styles.text}>Password</Text>
       <TextInput
@@ -48,7 +49,8 @@ const Login = ({ navigation }) => {
       <TouchableOpacity
         title="Submit"
         style={styles.button}
-        onPress={() => login(email,password)}
+        onPress={() => login(email,password)
+        }
       >
         <Text style={styles.btnText} >Login</Text>
       </TouchableOpacity>

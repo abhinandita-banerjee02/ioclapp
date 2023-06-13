@@ -11,6 +11,8 @@ const BookingConfirmation = ({route,navigation}) => {
     const [chosenDate, setChosenDate] = useState(null);
 
     const{title1}=route.params;
+    const{venue1}=route.params;
+    const{capacity1}=route.params;
 
     const showDatePicker = () => {
         setDatePickerVisibility(true);
@@ -86,8 +88,8 @@ const BookingConfirmation = ({route,navigation}) => {
 
             <View style={styles.container_subheading}>
                 <Text style={styles.subheading1}>Venue:   {title1}</Text>
-                {/*<Text style={styles.subheading2}>Capacity:</Text>*/}
-                {/*<Text style={styles.subheading3}>Features:</Text>*/}
+                <Text style={styles.subheading2}>Location: {venue1}</Text>
+                <Text style={styles.subheading3}>Capacity: {capacity1}</Text>
             </View>
 
 
@@ -141,6 +143,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: "100%",
+        backgroundColor:"#FCE1CE"
 
     },
     container_heading: {
@@ -148,7 +151,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         top: 0,
         left: 0,
-        paddingTop: 50,
+        paddingTop: 80,
         width: "80%",
         backgroundColor: "#FCE1CE",
     },
@@ -167,7 +170,7 @@ const styles = StyleSheet.create({
     image: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 150,
+        marginTop: 200,
         marginLeft: 30,
         width: 350,
         height: 230
@@ -175,23 +178,24 @@ const styles = StyleSheet.create({
 
     },
     container_subheading: {
-        marginTop: 35,
-        marginLeft: 30,
-        marginBottom: 15
+        marginTop: 50,
+        marginLeft: 35,
+        marginBottom: 30
     },
     subheading1: {
-        fontSize: 25,
+        fontSize: 24,
         fontWeight: "bold",
         paddingBottom: 10,
     },
     subheading2: {
-        fontSize: 25,
-        fontWeight: "bold",
+        fontSize: 22,
+        //fontWeight: "bold",
         paddingBottom: 10,
+        alignContent:'center'
     },
     subheading3: {
-        fontSize: 25,
-        fontWeight: "bold",
+        fontSize: 22,
+        //fontWeight: "bold",
     },
 
     container_card: {

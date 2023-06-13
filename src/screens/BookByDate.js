@@ -125,7 +125,7 @@ const BookByDate = ({ navigation }) => {
 
       <DateTimePickerModal
         isVisible={isTimePickerVisible}
-        mode="date"
+        mode="time"
         onConfirm={handleTimeConfirm}
         onCancel={hideTimePicker}
       />
@@ -138,14 +138,14 @@ const styles = StyleSheet.create({
     //right:0,
 
     width: "100%",
-    // backgroundColor: "#FCE1CE"
+     backgroundColor: "#FCE1CE"
   },
   container_heading: {
 
     position: "absolute",
     top: 0,
     left: 0,
-    paddingTop: 50,
+    paddingTop: 80,
     width: "80%",
     backgroundColor: "#FCE1CE",
   },

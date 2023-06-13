@@ -1,32 +1,8 @@
-
-
-//import { createStackNavigator } from 'react-navigation-stack';
-//import { createAppContainer } from 'react-navigation';
-//import Login from '../screens/Login';
-//import Home from '../screens/Home';
-//import BookingConfirmation from "../screens/BookingConfirmation";
-
-
-/*const Navigation = createStackNavigator({
-    Login: Login,
-    Home: Home,
-    BookingConfirmation: BookingConfirmation
-  
-    
-  },
-  {
-    initialRouteName: 'Login',
-  })
-  
-  export default createAppContainer(Navigation);
-  */
-  import React, {useContext} from 'react';
-import {Text, View} from 'react-native';
-
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-import {AuthContext} from '../context/AuthContext';
+import React, { useContext } from 'react';
+import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { AuthContext } from '../context/AuthContext';
 import SplashScreen from '../screens/SplashScreen';
 import Home from '../screens/Home';
 import Login from '../screens/Login';
@@ -34,7 +10,9 @@ import BookingConfirmation from '../screens/BookingConfirmation';
 import BookByDate from '../screens/BookByDate';
 import Available1 from '../screens/Available1';
 import Available from '../screens/Available';
-import Successful from '../screens/Successful'
+import Successful from '../screens/Successful';
+import CancelConfirmation from '../screens/CancelConfirmation';
+
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -66,7 +44,7 @@ const Navigation = () => {
               component={Available}
               options={{ headerShown: false }}
             />
-             <Stack.Screen
+            <Stack.Screen
               name="BookingConfirmation"
               component={BookingConfirmation}
               options={{ headerShown: false }}
@@ -74,6 +52,11 @@ const Navigation = () => {
             <Stack.Screen
               name="Successful"
               component={Successful}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="CancelConfirmation"
+              component={CancelConfirmation}
               options={{ headerShown: false }}
             />
           </>
@@ -84,7 +67,6 @@ const Navigation = () => {
               component={Login}
               options={{ headerShown: false }}
             />
-            
           </>
         )}
       </Stack.Navigator>
@@ -93,3 +75,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+

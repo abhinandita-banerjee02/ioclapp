@@ -69,7 +69,9 @@ const Home = ({ navigation }) => {
     })
     setData(filteredData)
   };
-
+  const handleCancel = () => {
+    navigation.navigate('CancelConfirmation');
+  };
   const contains = ({ title1 }, query) => {
 
 
@@ -113,7 +115,7 @@ const Home = ({ navigation }) => {
       </View>
       {/* Search bar */}
 
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.scroll}>
         {/* Carousel */}
         <View style={styles.carouselContainer}>
           <View>
@@ -124,6 +126,10 @@ const Home = ({ navigation }) => {
           </View>
         </View>
         {/* Carousel */}
+
+        <TouchableOpacity onPress={handleCancel} >
+          <Text style={styles.btnCan}>Press here to cancel previous booking</Text>
+        </TouchableOpacity>
         {/* Venue details */}
 
         <FlatList
@@ -155,9 +161,15 @@ const Home = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  scroll:{
+
+    marginBottom:100
+
+  },
   container: {
     paddingHorizontal: 20,
-    marginTop: 20,
+    paddingTop: 60,
+    backgroundColor:"#FCE1CE"
   },
   searchFlex: {
     flexDirection: "column",
